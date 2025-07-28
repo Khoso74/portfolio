@@ -337,6 +337,74 @@ select:focus {
     transform: scale(1.05);
 }
 
+/* Enhanced modal animations */
+.modal-image-enter {
+    animation: modalImageEnter 0.4s ease-out;
+}
+
+@keyframes modalImageEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-image-exit {
+    animation: modalImageExit 0.3s ease-in;
+}
+
+@keyframes modalImageExit {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+}
+
+/* Image navigation buttons */
+.modal-nav-button {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-nav-button:hover {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Loading animation for images */
+.image-loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
 /* High contrast mode support */
 @media (prefers-contrast: high) {
     .btn-primary {
