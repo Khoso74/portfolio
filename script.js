@@ -590,14 +590,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             `;
             
-            project.images.forEach(imagePath => {
+            project.images.forEach((imagePath, index) => {
                 contentHTML += `
-                    <div class="relative group">
-                        <img src="${imagePath}" alt="Project Screenshot" 
-                             class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
-                             onclick="openImageModal('${imagePath}')">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-search-plus text-white opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    <div class="relative group cursor-pointer transform hover:scale-105 transition-all duration-300" onclick="openImageModal('${imagePath}')">
+                        <img src="${imagePath}" alt="Project Screenshot ${index + 1}" 
+                             class="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
+                            <div class="bg-white bg-opacity-90 text-gray-800 px-3 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <i class="fas fa-search-plus mr-2"></i>
+                                <span class="text-sm font-medium">View Full Size</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-2 right-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            ${index + 1} / ${project.images.length}
                         </div>
                     </div>
                 `;
@@ -621,26 +626,136 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.openImageModal = function(imagePath) {
-        // Create a simple image modal
+        // Create enhanced image modal with smooth animations
         const imageModal = document.createElement('div');
-        imageModal.className = 'fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4';
+        imageModal.className = 'fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300';
+        imageModal.id = 'imageModal';
+        
         imageModal.innerHTML = `
-            <div class="relative max-w-4xl max-h-full">
-                <img src="${imagePath}" alt="Project Screenshot" class="max-w-full max-h-full object-contain">
-                <button onclick="this.parentElement.parentElement.remove()" class="absolute top-4 right-4 text-white text-2xl hover:text-gray-300">
-                    <i class="fas fa-times"></i>
-                </button>
+            <div class="relative max-w-5xl max-h-full transform scale-95 transition-transform duration-300" id="imageModalContent">
+                <div class="relative">
+                    <img src="${imagePath}" alt="Project Screenshot" 
+                         class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                         id="modalImage"
+                         onload="document.getElementById('imageModalContent').classList.remove('scale-95'); document.getElementById('imageModalContent').classList.add('scale-100');">
+                    
+                    <!-- Close button -->
+                    <button onclick="closeImageModal()" 
+                            class="absolute -top-4 -right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    
+                    <!-- Navigation arrows (if multiple images) -->
+                    <button onclick="navigateImage('prev')" 
+                            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white text-xl w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <button onclick="navigateImage('next')" 
+                            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white text-xl w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Image counter -->
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full text-sm backdrop-blur-sm">
+                        <span id="imageCounter">1</span> / <span id="totalImages">1</span>
+                    </div>
+                </div>
             </div>
         `;
+        
         document.body.appendChild(imageModal);
+        
+        // Store current image info for navigation
+        window.currentImageIndex = 0;
+        window.currentProjectImages = [];
+        
+        // Find which project this image belongs to
+        for (const [projectId, project] of Object.entries(projectData)) {
+            if (project.images.includes(imagePath)) {
+                window.currentProjectImages = project.images;
+                window.currentImageIndex = project.images.indexOf(imagePath);
+                updateImageCounter();
+                break;
+            }
+        }
+        
+        // Show modal with animation
+        setTimeout(() => {
+            imageModal.classList.remove('opacity-0');
+        }, 10);
         
         // Close modal when clicking outside
         imageModal.addEventListener('click', function(e) {
             if (e.target === this) {
-                this.remove();
+                closeImageModal();
             }
         });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', handleImageModalKeydown);
     };
+    
+    window.closeImageModal = function() {
+        const imageModal = document.getElementById('imageModal');
+        if (imageModal) {
+            imageModal.classList.add('opacity-0');
+            document.getElementById('imageModalContent').classList.add('scale-95');
+            document.getElementById('imageModalContent').classList.remove('scale-100');
+            
+            setTimeout(() => {
+                imageModal.remove();
+                document.removeEventListener('keydown', handleImageModalKeydown);
+            }, 300);
+        }
+    };
+    
+    window.navigateImage = function(direction) {
+        if (!window.currentProjectImages || window.currentProjectImages.length <= 1) return;
+        
+        if (direction === 'next') {
+            window.currentImageIndex = (window.currentImageIndex + 1) % window.currentProjectImages.length;
+        } else {
+            window.currentImageIndex = window.currentImageIndex === 0 ? window.currentProjectImages.length - 1 : window.currentImageIndex - 1;
+        }
+        
+        const newImagePath = window.currentProjectImages[window.currentImageIndex];
+        const modalImage = document.getElementById('modalImage');
+        
+        // Fade out current image
+        modalImage.style.opacity = '0';
+        modalImage.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+            modalImage.src = newImagePath;
+            modalImage.style.opacity = '1';
+            modalImage.style.transform = 'scale(1)';
+            updateImageCounter();
+        }, 150);
+    };
+    
+    function updateImageCounter() {
+        const counter = document.getElementById('imageCounter');
+        const total = document.getElementById('totalImages');
+        if (counter && total) {
+            counter.textContent = window.currentImageIndex + 1;
+            total.textContent = window.currentProjectImages.length;
+        }
+    }
+    
+    function handleImageModalKeydown(e) {
+        switch(e.key) {
+            case 'Escape':
+                closeImageModal();
+                break;
+            case 'ArrowLeft':
+                navigateImage('prev');
+                break;
+            case 'ArrowRight':
+                navigateImage('next');
+                break;
+        }
+    }
 
     // Close modal when clicking outside
     document.getElementById('projectModal').addEventListener('click', function(e) {
