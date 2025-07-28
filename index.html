@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farooq Ahmed - Google Apps Script Developer, Automation Builder, and Visa Consultant. Specializing in Google Sheets, Forms, Apps Script tools and US visa consultancy.">
+    <meta name="keywords" content="Farooq Ahmed, Google Apps Script, Automation, Visa Consultant, Pakistan, Google Sheets, Google Forms">
+    <meta name="author" content="Farooq Ahmed">
+    <title>Farooq Ahmed - Developer & Visa Consultant</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-blue-600">Farooq Ahmed</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="nav-link">Home</a>
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <a href="#services" class="nav-link">Services</a>
+                        <a href="#blog" class="nav-link">Blog</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="mobile-nav-link">Home</a>
+                <a href="#about" class="mobile-nav-link">About</a>
+                <a href="#projects" class="mobile-nav-link">Projects</a>
+                <a href="#services" class="mobile-nav-link">Services</a>
+                <a href="#blog" class="mobile-nav-link">Blog</a>
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-20 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-8">
+                    <img src="https://via.placeholder.com/150x150/3B82F6/FFFFFF?text=FA" alt="Farooq Ahmed" class="w-32 h-32 rounded-full mx-auto border-4 border-blue-600 shadow-lg">
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+                    Hi, I'm <span class="text-blue-600">Farooq Ahmed</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Pakistani tech enthusiast, Google Apps Script developer, and automation builder. 
+                    Creating real-world tools and helping with US visa consultancy.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#projects" class="btn-primary">
+                        <i class="fas fa-code mr-2"></i>View My Work
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <i class="fas fa-envelope mr-2"></i>Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">My Journey</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I'm a passionate tech enthusiast from Pakistan with a deep love for automation and problem-solving. 
+                        My journey in technology began with Google Apps Script, where I discovered the power of creating 
+                        real-world solutions using familiar tools like Google Sheets and Forms.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Beyond technology, I'm also passionate about helping people achieve their dreams of visiting or 
+                        immigrating to the United States. My expertise in visa consultancy, particularly for US visit visas 
+                        and family-based immigration, allows me to make a meaningful impact in people's lives.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-blue-50 rounded-lg">
+                            <i class="fas fa-code text-2xl text-blue-600 mb-2"></i>
+                            <h4 class="font-semibold">Developer</h4>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <i class="fas fa-plane text-2xl text-green-600 mb-2"></i>
+                            <h4 class="font-semibold">Visa Consultant</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-semibold text-gray-900 mb-3">Skills & Expertise</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Google Apps Script</span>
+                                    <span class="text-sm text-gray-600">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Google Sheets</span>
+                                    <span class="text-sm text-gray-600">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Visa Consultancy</span>
+                                    <span class="text-sm text-gray-600">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Automation</span>
+                                    <span class="text-sm text-gray-600">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Here are some of the tools and automations I've built to solve real-world problems
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-chart-line text-2xl text-blue-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">Sales Tracker</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Automated Google Sheets solution for tracking sales, generating reports, and sending 
+                            notifications to stakeholders.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Google Sheets</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-envelope text-2xl text-green-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">Email Automation</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Smart email system that automatically sends personalized emails based on form responses 
+                            and triggers.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Gmail API</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-calendar-alt text-2xl text-purple-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">Appointment Scheduler</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Google Forms integration with Calendar API for automated appointment booking and 
+                            scheduling management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Calendar API</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-file-invoice text-2xl text-red-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">Invoice Generator</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Automated invoice generation from Google Sheets data with PDF export and email delivery.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">PDF Generation</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-database text-2xl text-indigo-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">Data Sync Tool</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Real-time synchronization between multiple Google Sheets with conflict resolution and 
+                            data validation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Data Sync</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-chart-pie text-2xl text-teal-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">Analytics Dashboard</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Interactive dashboard for visualizing business metrics with real-time data updates 
+                            and custom reporting.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">Data Visualization</span>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Services I Offer</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    From automation solutions to visa consultancy, I help businesses and individuals achieve their goals
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Google Apps Script Services -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-code text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Google Apps Script Development</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <span>Custom automation solutions for Google Sheets and Forms</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <span>Email automation and notification systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <span>Data processing and analysis tools</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <span>Integration with Google APIs and third-party services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <span>Custom web applications and dashboards</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Visa Consultancy Services -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-plane text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Visa Consultancy</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <span>US Visit Visa application assistance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <span>Family-based immigration consultation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <span>Document preparation and review</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <span>Interview preparation and guidance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mt-1 mr-3"></i>
+                            <span>Application status tracking and follow-up</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Latest Blog Posts</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Tutorials, guides, and insights about automation, Google Apps Script, and visa processes
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>December 15, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            <a href="#" class="hover:text-blue-600">Getting Started with Google Apps Script</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            A comprehensive guide for beginners who want to automate their Google Workspace tools 
+                            and create powerful custom solutions.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Tutorial</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>December 10, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            <a href="#" class="hover:text-blue-600">US Visit Visa: Common Mistakes to Avoid</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Learn about the most common mistakes applicants make when applying for US visit visas 
+                            and how to avoid them.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Visa Guide</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>December 5, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                            <a href="#" class="hover:text-blue-600">Building Automated Email Systems</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Step-by-step tutorial on creating automated email systems using Google Apps Script 
+                            and Gmail API integration.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Automation</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="btn-primary">
+                    <i class="fas fa-book-open mr-2"></i>View All Posts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Ready to start your automation project or need visa consultation? Let's discuss how I can help you.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Send Me a Message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <select id="subject" name="subject" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Select a subject</option>
+                                <option value="automation">Google Apps Script Automation</option>
+                                <option value="visa">Visa Consultancy</option>
+                                <option value="project">Project Discussion</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-primary">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-blue-600 text-xl mr-4"></i>
+                                <div>
+                                    <p class="font-medium text-gray-900">Email</p>
+                                    <p class="text-gray-600">farooq.ahmed@example.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fab fa-whatsapp text-green-600 text-xl mr-4"></i>
+                                <div>
+                                    <p class="font-medium text-gray-900">WhatsApp</p>
+                                    <p class="text-gray-600">+92 XXX XXX XXXX</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-red-600 text-xl mr-4"></i>
+                                <div>
+                                    <p class="font-medium text-gray-900">Location</p>
+                                    <p class="text-gray-600">Pakistan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Contact Buttons -->
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-semibold text-gray-900">Quick Contact</h4>
+                        <a href="https://wa.me/92XXXXXXXXXX" target="_blank" 
+                           class="flex items-center justify-center w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors duration-300">
+                            <i class="fab fa-whatsapp mr-2 text-xl"></i>
+                            Chat on WhatsApp
+                        </a>
+                        <a href="mailto:farooq.ahmed@example.com" 
+                           class="flex items-center justify-center w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Send Email
+                        </a>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Business Hours</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Monday - Friday</span>
+                                <span>9:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Saturday</span>
+                                <span>10:00 AM - 4:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Sunday</span>
+                                <span>Closed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-blue-400 mb-4">Farooq Ahmed</h3>
+                    <p class="text-gray-400 mb-4">
+                        Pakistani tech enthusiast, Google Apps Script developer, and visa consultant helping 
+                        businesses and individuals achieve their goals.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#services" class="hover:text-blue-400 transition-colors duration-300">Google Apps Script</a></li>
+                        <li><a href="#services" class="hover:text-blue-400 transition-colors duration-300">Automation Solutions</a></li>
+                        <li><a href="#services" class="hover:text-blue-400 transition-colors duration-300">Visa Consultancy</a></li>
+                        <li><a href="#services" class="hover:text-blue-400 transition-colors duration-300">US Immigration</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-blue-400 transition-colors duration-300">About Me</a></li>
+                        <li><a href="#projects" class="hover:text-blue-400 transition-colors duration-300">Projects</a></li>
+                        <li><a href="#blog" class="hover:text-blue-400 transition-colors duration-300">Blog</a></li>
+                        <li><a href="#contact" class="hover:text-blue-400 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Farooq Ahmed. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
