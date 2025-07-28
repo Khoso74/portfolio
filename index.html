@@ -164,116 +164,117 @@
                 </p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <!-- Project 1: Upgraded HR Automation System -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 project-card">
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                            <i class="fas fa-chart-line text-2xl text-blue-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-900">Sales Tracker</h3>
+                            <i class="fas fa-users-cog text-2xl text-blue-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">Upgraded HR Automation System</h3>
                         </div>
                         <p class="text-gray-600 mb-4">
-                            Automated Google Sheets solution for tracking sales, generating reports, and sending 
-                            notifications to stakeholders.
+                            Comprehensive HR automation solution with employee management, leave tracking, 
+                            performance monitoring, and automated reporting capabilities.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Google Sheets</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">HR Management</span>
                         </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                        <button onclick="openProjectModal('hr-automation')" class="text-blue-600 hover:text-blue-800 font-medium cursor-pointer">View Details →</button>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <!-- Project 2: Smart Field Monitoring & Reporting -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 project-card">
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                            <i class="fas fa-envelope text-2xl text-green-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-900">Email Automation</h3>
+                            <i class="fas fa-map-marked-alt text-2xl text-green-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">Smart Field Monitoring & Reporting</h3>
                         </div>
                         <p class="text-gray-600 mb-4">
-                            Smart email system that automatically sends personalized emails based on form responses 
-                            and triggers.
+                            Real-time field monitoring system with GPS tracking, automated reporting, 
+                            and data visualization for field operations management.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Gmail API</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Field Monitoring</span>
                         </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                        <button onclick="openProjectModal('field-monitoring')" class="text-blue-600 hover:text-blue-800 font-medium cursor-pointer">View Details →</button>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <!-- Project 3: Inventory Monitoring Dashboard -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 project-card">
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                            <i class="fas fa-calendar-alt text-2xl text-purple-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-900">Appointment Scheduler</h3>
+                            <i class="fas fa-boxes text-2xl text-purple-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">Inventory Monitoring Dashboard</h3>
                         </div>
                         <p class="text-gray-600 mb-4">
-                            Google Forms integration with Calendar API for automated appointment booking and 
-                            scheduling management.
+                            Advanced inventory management system with real-time tracking, 
+                            automated alerts, and comprehensive reporting dashboard.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
-                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Calendar API</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Inventory Management</span>
                         </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                        <button onclick="openProjectModal('inventory-dashboard')" class="text-blue-600 hover:text-blue-800 font-medium cursor-pointer">View Details →</button>
                     </div>
                 </div>
 
-                <!-- Project 4 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <!-- Project 4: HR Onboarding Automation System -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 project-card">
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                            <i class="fas fa-file-invoice text-2xl text-red-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-900">Invoice Generator</h3>
+                            <i class="fas fa-user-plus text-2xl text-red-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">HR Onboarding Automation System</h3>
                         </div>
                         <p class="text-gray-600 mb-4">
-                            Automated invoice generation from Google Sheets data with PDF export and email delivery.
+                            Streamlined employee onboarding process with automated workflows, 
+                            document management, and progress tracking.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
-                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">PDF Generation</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Onboarding</span>
                         </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                        <button onclick="openProjectModal('hr-onboarding')" class="text-blue-600 hover:text-blue-800 font-medium cursor-pointer">View Details →</button>
                     </div>
                 </div>
 
-                <!-- Project 5 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <!-- Project 5: Digital Ration Distribution System -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 project-card">
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                            <i class="fas fa-database text-2xl text-indigo-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-900">Data Sync Tool</h3>
+                            <i class="fas fa-hand-holding-heart text-2xl text-indigo-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">Digital Ration Distribution System</h3>
                         </div>
                         <p class="text-gray-600 mb-4">
-                            Real-time synchronization between multiple Google Sheets with conflict resolution and 
-                            data validation.
+                            Digital system for managing ration distribution with beneficiary tracking, 
+                            inventory management, and automated reporting.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Data Sync</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Distribution</span>
                         </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                        <button onclick="openProjectModal('ration-distribution')" class="text-blue-600 hover:text-blue-800 font-medium cursor-pointer">View Details →</button>
                     </div>
                 </div>
 
-                <!-- Project 6 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <!-- Project 6: Telecom Data Request -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 project-card">
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                            <i class="fas fa-chart-pie text-2xl text-teal-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-900">Analytics Dashboard</h3>
+                            <i class="fas fa-phone-alt text-2xl text-teal-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-gray-900">Telecom Data Request</h3>
                         </div>
                         <p class="text-gray-600 mb-4">
-                            Interactive dashboard for visualizing business metrics with real-time data updates 
-                            and custom reporting.
+                            Automated system for handling telecom data requests with 
+                            request tracking, approval workflows, and data management.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
-                            <span class="px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">Data Visualization</span>
+                            <span class="px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">Telecom</span>
                         </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                        <button onclick="openProjectModal('telecom-data')" class="text-blue-600 hover:text-blue-800 font-medium cursor-pointer">View Details →</button>
                     </div>
                 </div>
             </div>
@@ -596,6 +597,32 @@
             </div>
         </div>
     </footer>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg max-w-4xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 id="modalTitle" class="text-2xl font-bold text-gray-900"></h2>
+                        <button onclick="closeProjectModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div id="modalContent" class="space-y-6">
+                        <!-- Project description will be loaded here -->
+                    </div>
+                    
+                    <div class="mt-6 flex justify-end">
+                        <button onclick="closeProjectModal()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
