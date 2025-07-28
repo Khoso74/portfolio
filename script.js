@@ -358,6 +358,297 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Profile image element not found');
     }
 
+    // Project data for modal
+    const projectData = {
+        'hr-automation': {
+            title: 'Upgraded HR Automation System',
+            description: `
+                <p class="text-gray-600 mb-4">
+                    A comprehensive HR automation solution built with Google Apps Script that streamlines 
+                    all aspects of human resource management. This system includes employee management, 
+                    leave tracking, performance monitoring, and automated reporting capabilities.
+                </p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Key Features:</h3>
+                <ul class="list-disc list-inside text-gray-600 mb-4 space-y-1">
+                    <li>Employee database management with automated data validation</li>
+                    <li>Leave request and approval workflow automation</li>
+                    <li>Performance tracking and evaluation system</li>
+                    <li>Automated report generation and email notifications</li>
+                    <li>Integration with Google Calendar for scheduling</li>
+                    <li>Real-time dashboard for HR metrics</li>
+                </ul>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Google Sheets</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Google Forms</span>
+                    <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Gmail API</span>
+                </div>
+            `,
+            images: [
+                'projects/Upgraded HR Automation System/111111.jpg',
+                'projects/Upgraded HR Automation System/222222.jpg',
+                'projects/Upgraded HR Automation System/333333.jpg',
+                'projects/Upgraded HR Automation System/444444.jpg',
+                'projects/Upgraded HR Automation System/555555.jpg',
+                'projects/Upgraded HR Automation System/666666.jpg'
+            ]
+        },
+        'field-monitoring': {
+            title: 'Smart Field Monitoring & Reporting',
+            description: `
+                <p class="text-gray-600 mb-4">
+                    A real-time field monitoring system that enables organizations to track field operations, 
+                    manage field staff, and generate comprehensive reports automatically. The system includes 
+                    GPS tracking, automated reporting, and data visualization capabilities.
+                </p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Key Features:</h3>
+                <ul class="list-disc list-inside text-gray-600 mb-4 space-y-1">
+                    <li>Real-time GPS tracking and location monitoring</li>
+                    <li>Automated field activity reporting</li>
+                    <li>Data visualization and analytics dashboard</li>
+                    <li>Mobile-friendly interface for field staff</li>
+                    <li>Automated alert system for critical events</li>
+                    <li>Integration with mapping services</li>
+                </ul>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Google Maps API</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Data Visualization</span>
+                    <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Mobile Web App</span>
+                </div>
+            `,
+            images: [
+                'projects/Smart Field Monitoring & Reporting/11111.jpg',
+                'projects/Smart Field Monitoring & Reporting/22222.jpg',
+                'projects/Smart Field Monitoring & Reporting/33333.jpg',
+                'projects/Smart Field Monitoring & Reporting/44444.jpg',
+                'projects/Smart Field Monitoring & Reporting/55555.jpg'
+            ]
+        },
+        'inventory-dashboard': {
+            title: 'Inventory Monitoring Dashboard',
+            description: `
+                <p class="text-gray-600 mb-4">
+                    An advanced inventory management system that provides real-time tracking, automated alerts, 
+                    and comprehensive reporting for inventory control. The dashboard offers intuitive data 
+                    visualization and automated inventory optimization suggestions.
+                </p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Key Features:</h3>
+                <ul class="list-disc list-inside text-gray-600 mb-4 space-y-1">
+                    <li>Real-time inventory tracking and monitoring</li>
+                    <li>Automated low stock alerts and reorder notifications</li>
+                    <li>Comprehensive reporting and analytics dashboard</li>
+                    <li>Barcode scanning integration</li>
+                    <li>Inventory forecasting and demand planning</li>
+                    <li>Multi-location inventory management</li>
+                </ul>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Google Sheets</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Chart.js</span>
+                    <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Data Analytics</span>
+                </div>
+            `,
+            images: [
+                'projects/Inventory Monitoring Dashboard/1111.jpg',
+                'projects/Inventory Monitoring Dashboard/2222.jpg',
+                'projects/Inventory Monitoring Dashboard/3333.jpg',
+                'projects/Inventory Monitoring Dashboard/4444.jpg',
+                'projects/Inventory Monitoring Dashboard/5555.jpg',
+                'projects/Inventory Monitoring Dashboard/6666.jpg',
+                'projects/Inventory Monitoring Dashboard/7777.jpg'
+            ]
+        },
+        'hr-onboarding': {
+            title: 'HR Onboarding Automation System',
+            description: `
+                <p class="text-gray-600 mb-4">
+                    A streamlined employee onboarding system that automates the entire onboarding process, 
+                    from initial application to full integration. The system includes document management, 
+                    progress tracking, and automated workflow notifications.
+                </p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Key Features:</h3>
+                <ul class="list-disc list-inside text-gray-600 mb-4 space-y-1">
+                    <li>Automated onboarding workflow management</li>
+                    <li>Digital document collection and verification</li>
+                    <li>Progress tracking and milestone notifications</li>
+                    <li>Integration with HR systems and databases</li>
+                    <li>Automated email notifications and reminders</li>
+                    <li>Compliance tracking and reporting</li>
+                </ul>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Google Drive API</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Workflow Automation</span>
+                    <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Document Management</span>
+                </div>
+            `,
+            images: [
+                'projects/HR Onboarding Automation System/111.jpg',
+                'projects/HR Onboarding Automation System/222.jpg',
+                'projects/HR Onboarding Automation System/333.jpg',
+                'projects/HR Onboarding Automation System/444.jpg',
+                'projects/HR Onboarding Automation System/555.jpg',
+                'projects/HR Onboarding Automation System/666.jpg',
+                'projects/HR Onboarding Automation System/777.jpg'
+            ]
+        },
+        'ration-distribution': {
+            title: 'Digital Ration Distribution System',
+            description: `
+                <p class="text-gray-600 mb-4">
+                    A digital system designed to manage ration distribution efficiently with beneficiary tracking, 
+                    inventory management, and automated reporting. This system ensures transparent and 
+                    accountable distribution of essential supplies.
+                </p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Key Features:</h3>
+                <ul class="list-disc list-inside text-gray-600 mb-4 space-y-1">
+                    <li>Beneficiary registration and verification system</li>
+                    <li>Real-time inventory tracking and management</li>
+                    <li>Automated distribution scheduling</li>
+                    <li>Digital receipt generation and tracking</li>
+                    <li>Comprehensive reporting and analytics</li>
+                    <li>Mobile app for field distribution staff</li>
+                </ul>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Google Forms</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">QR Code Generation</span>
+                    <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Mobile Web App</span>
+                </div>
+            `,
+            images: [
+                'projects/Digital Ration Distribution System/11.jpg',
+                'projects/Digital Ration Distribution System/22.jpg',
+                'projects/Digital Ration Distribution System/33.jpg',
+                'projects/Digital Ration Distribution System/44.jpg',
+                'projects/Digital Ration Distribution System/55.jpg',
+                'projects/Digital Ration Distribution System/IMG-20250729-WA0025.jpg'
+            ]
+        },
+        'telecom-data': {
+            title: 'Telecom Data Request System',
+            description: `
+                <p class="text-gray-600 mb-4">
+                    An automated system for handling telecom data requests with comprehensive request tracking, 
+                    approval workflows, and data management capabilities. The system streamlines the process 
+                    of requesting and managing telecom-related data.
+                </p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Key Features:</h3>
+                <ul class="list-disc list-inside text-gray-600 mb-4 space-y-1">
+                    <li>Automated request submission and tracking</li>
+                    <li>Multi-level approval workflow system</li>
+                    <li>Data validation and security measures</li>
+                    <li>Real-time status updates and notifications</li>
+                    <li>Comprehensive audit trail and reporting</li>
+                    <li>Integration with telecom databases</li>
+                </ul>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Technologies Used:</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Google Apps Script</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Workflow Automation</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Data Security</span>
+                    <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">API Integration</span>
+                </div>
+            `,
+            images: [
+                'projects/Telecom Data Request/1.jpg',
+                'projects/Telecom Data Request/2.jpg',
+                'projects/Telecom Data Request/3.jpg',
+                'projects/Telecom Data Request/4.jpg',
+                'projects/Telecom Data Request/5.jpg',
+                'projects/Telecom Data Request/6.jpg',
+                'projects/Telecom Data Request/7.jpg'
+            ]
+        }
+    };
+
+    // Modal functions
+    window.openProjectModal = function(projectId) {
+        const project = projectData[projectId];
+        if (!project) return;
+
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+
+        modalTitle.textContent = project.title;
+        
+        // Create content with description and images
+        let contentHTML = project.description;
+        
+        // Add image gallery
+        if (project.images && project.images.length > 0) {
+            contentHTML += `
+                <div class="mt-8">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Project Screenshots</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            `;
+            
+            project.images.forEach(imagePath => {
+                contentHTML += `
+                    <div class="relative group">
+                        <img src="${imagePath}" alt="Project Screenshot" 
+                             class="w-full h-48 object-cover rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+                             onclick="openImageModal('${imagePath}')">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-search-plus text-white opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            contentHTML += `
+                    </div>
+                </div>
+            `;
+        }
+
+        modalContent.innerHTML = contentHTML;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeProjectModal = function() {
+        const modal = document.getElementById('projectModal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    };
+
+    window.openImageModal = function(imagePath) {
+        // Create a simple image modal
+        const imageModal = document.createElement('div');
+        imageModal.className = 'fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4';
+        imageModal.innerHTML = `
+            <div class="relative max-w-4xl max-h-full">
+                <img src="${imagePath}" alt="Project Screenshot" class="max-w-full max-h-full object-contain">
+                <button onclick="this.parentElement.parentElement.remove()" class="absolute top-4 right-4 text-white text-2xl hover:text-gray-300">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `;
+        document.body.appendChild(imageModal);
+        
+        // Close modal when clicking outside
+        imageModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.remove();
+            }
+        });
+    };
+
+    // Close modal when clicking outside
+    document.getElementById('projectModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeProjectModal();
+        }
+    });
+
     // Console welcome message
     console.log(`
     🚀 Welcome to Farooq Ahmed's Portfolio!
