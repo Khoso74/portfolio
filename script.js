@@ -385,14 +385,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Gmail API</span>
                 </div>
             `,
-            images: [
-                'projects/Upgraded HR Automation System/111111.jpg',
-                'projects/Upgraded HR Automation System/222222.jpg',
-                'projects/Upgraded HR Automation System/333333.jpg',
-                'projects/Upgraded HR Automation System/444444.jpg',
-                'projects/Upgraded HR Automation System/555555.jpg',
-                'projects/Upgraded HR Automation System/666666.jpg'
-            ]
+                         images: [
+                 'projects/Upgraded HR Automation System/111111.jpg',
+                 'projects/Upgraded HR Automation System/222222.jpg',
+                 'projects/Upgraded HR Automation System/333333.jpg',
+                 'projects/Upgraded HR Automation System/444444.jpg',
+                 'projects/Upgraded HR Automation System/555555.jpg',
+                 'projects/Upgraded HR Automation System/666666.jpg'
+             ]
         },
         'field-monitoring': {
             title: 'Smart Field Monitoring & Reporting',
@@ -419,13 +419,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Mobile Web App</span>
                 </div>
             `,
-            images: [
-                'projects/Smart Field Monitoring & Reporting/11111.jpg',
-                'projects/Smart Field Monitoring & Reporting/22222.jpg',
-                'projects/Smart Field Monitoring & Reporting/33333.jpg',
-                'projects/Smart Field Monitoring & Reporting/44444.jpg',
-                'projects/Smart Field Monitoring & Reporting/55555.jpg'
-            ]
+                         images: [
+                 'projects/Smart Field Monitoring & Reporting/11111.jpg',
+                 'projects/Smart Field Monitoring & Reporting/22222.jpg',
+                 'projects/Smart Field Monitoring & Reporting/33333.jpg',
+                 'projects/Smart Field Monitoring & Reporting/44444.jpg',
+                 'projects/Smart Field Monitoring & Reporting/55555.jpg'
+             ]
         },
         'inventory-dashboard': {
             title: 'Inventory Monitoring Dashboard',
@@ -452,15 +452,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Data Analytics</span>
                 </div>
             `,
-            images: [
-                'projects/Inventory Monitoring Dashboard/1111.jpg',
-                'projects/Inventory Monitoring Dashboard/2222.jpg',
-                'projects/Inventory Monitoring Dashboard/3333.jpg',
-                'projects/Inventory Monitoring Dashboard/4444.jpg',
-                'projects/Inventory Monitoring Dashboard/5555.jpg',
-                'projects/Inventory Monitoring Dashboard/6666.jpg',
-                'projects/Inventory Monitoring Dashboard/7777.jpg'
-            ]
+                         images: [
+                 'projects/Inventory Monitoring Dashboard/1111.jpg',
+                 'projects/Inventory Monitoring Dashboard/2222.jpg',
+                 'projects/Inventory Monitoring Dashboard/3333.jpg',
+                 'projects/Inventory Monitoring Dashboard/4444.jpg',
+                 'projects/Inventory Monitoring Dashboard/5555.jpg',
+                 'projects/Inventory Monitoring Dashboard/6666.jpg',
+                 'projects/Inventory Monitoring Dashboard/7777.jpg'
+             ]
         },
         'hr-onboarding': {
             title: 'HR Onboarding Automation System',
@@ -487,15 +487,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Document Management</span>
                 </div>
             `,
-            images: [
-                'projects/HR Onboarding Automation System/111.jpg',
-                'projects/HR Onboarding Automation System/222.jpg',
-                'projects/HR Onboarding Automation System/333.jpg',
-                'projects/HR Onboarding Automation System/444.jpg',
-                'projects/HR Onboarding Automation System/555.jpg',
-                'projects/HR Onboarding Automation System/666.jpg',
-                'projects/HR Onboarding Automation System/777.jpg'
-            ]
+                         images: [
+                 'projects/HR Onboarding Automation System/111.jpg',
+                 'projects/HR Onboarding Automation System/222.jpg',
+                 'projects/HR Onboarding Automation System/333.jpg',
+                 'projects/HR Onboarding Automation System/444.jpg',
+                 'projects/HR Onboarding Automation System/555.jpg',
+                 'projects/HR Onboarding Automation System/666.jpg',
+                 'projects/HR Onboarding Automation System/777.jpg'
+             ]
         },
         'ration-distribution': {
             title: 'Digital Ration Distribution System',
@@ -522,14 +522,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Mobile Web App</span>
                 </div>
             `,
-            images: [
-                'projects/Digital Ration Distribution System/11.jpg',
-                'projects/Digital Ration Distribution System/22.jpg',
-                'projects/Digital Ration Distribution System/33.jpg',
-                'projects/Digital Ration Distribution System/44.jpg',
-                'projects/Digital Ration Distribution System/55.jpg',
-                'projects/Digital Ration Distribution System/IMG-20250729-WA0025.jpg'
-            ]
+                         images: [
+                 'projects/Digital Ration Distribution System/11.jpg',
+                 'projects/Digital Ration Distribution System/22.jpg',
+                 'projects/Digital Ration Distribution System/33.jpg',
+                 'projects/Digital Ration Distribution System/44.jpg',
+                 'projects/Digital Ration Distribution System/55.jpg',
+                 'projects/Digital Ration Distribution System/IMG-20250729-WA0025.jpg'
+             ]
         },
         'telecom-data': {
             title: 'Telecom Data Request System',
@@ -556,15 +556,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">API Integration</span>
                 </div>
             `,
-            images: [
-                'projects/Telecom Data Request/1.jpg',
-                'projects/Telecom Data Request/2.jpg',
-                'projects/Telecom Data Request/3.jpg',
-                'projects/Telecom Data Request/4.jpg',
-                'projects/Telecom Data Request/5.jpg',
-                'projects/Telecom Data Request/6.jpg',
-                'projects/Telecom Data Request/7.jpg'
-            ]
+                         images: [
+                 'projects/Telecom Data Request/1.jpg',
+                 'projects/Telecom Data Request/2.jpg',
+                 'projects/Telecom Data Request/3.jpg',
+                 'projects/Telecom Data Request/4.jpg',
+                 'projects/Telecom Data Request/5.jpg',
+                 'projects/Telecom Data Request/6.jpg',
+                 'projects/Telecom Data Request/7.jpg'
+             ]
         }
     };
 
