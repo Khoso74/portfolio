@@ -443,3 +443,19 @@ select:focus {
     font-size: 1.1rem;
   }
 } 
+
+/* Fancy project card hover effect */
+.project-card-fancy {
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.project-card-fancy:hover {
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.6), 0 10px 20px rgba(0,0,0,0.08);
+  transform: translateY(-5px);
+}
+.project-image-fancy {
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.project-card-fancy:hover .project-image-fancy,
+.project-card-fancy .group:hover .project-image-fancy {
+  transform: scale(1.05);
+} 
