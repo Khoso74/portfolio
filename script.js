@@ -772,8 +772,8 @@ document.addEventListener('DOMContentLoaded', function() {
     🛠️  Automation Builder
     ✈️  Visa Consultant
     
-    📧 Contact: farooq.ahmed@example.com
-    📱 WhatsApp: +92 XXX XXX XXXX
+    📧 Contact: balouchp3@gmail.com
+    🔗 LinkedIn: https://www.linkedin.com/in/farooq-ahmed-86a069175/
     
     Built with ❤️ using HTML, CSS, and JavaScript
     `);
