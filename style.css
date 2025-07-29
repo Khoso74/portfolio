@@ -415,3 +415,30 @@ select:focus {
         border: 2px solid #3B82F6;
     }
 } 
+
+/* Project card image hover effect */
+.project-card .project-image {
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.project-card:hover .project-image,
+.project-card .group:hover .project-image {
+  transform: scale(1.08);
+}
+.project-card .group:hover .absolute {
+  opacity: 1 !important;
+}
+
+/* Responsive overlay text */
+.project-card .absolute h3,
+.project-card .absolute p {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 640px) {
+  .project-card .absolute h3 {
+    font-size: 1.1rem;
+  }
+  .project-card .absolute p {
+    font-size: 0.85rem;
+  }
+} 
