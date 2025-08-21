@@ -1,889 +1,725 @@
-// Modern Portfolio JavaScript - 2025 Enhanced Features
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all modern features
-    initializeModernFeatures();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farooq Ahmed - Office Automation Expert with AI & Visa Consultant. Specializing in Google Apps Script, automation, and visa consultancy services.">
+    <meta name="keywords" content="Farooq Ahmed, Office Automation Expert, AI Automation, Visa Consultant, Google Apps Script, Automation, Digital Solutions, Immigration Services">
+    <meta name="author" content="Farooq Ahmed">
+    <meta property="og:title" content="Farooq Ahmed - Office Automation Expert with AI & Visa Consultant">
+    <meta property="og:description" content="Transforming business processes with AI-powered automation and providing expert visa consultancy services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://khoso74.github.io/portfolio/">
+    <title>Farooq Ahmed - Office Automation Expert with AI & Visa Consultant</title>
     
-    // Mobile menu functionality
-    initializeMobileMenu();
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    // Smooth scrolling and navigation
-    initializeSmoothScrolling();
+    <!-- Modern Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css">
     
-    // Typing animations
-    initializeTypingAnimations();
-    
-    // Scroll animations and effects
-    initializeScrollEffects();
-    
-    // Contact form handling
-    initializeContactForm();
-    
-    // Project modal system
-    initializeProjectModals();
-    
-    // Theme toggle functionality
-    initializeThemeToggle();
-    
-    // Performance optimizations
-    initializePerformanceOptimizations();
-});
-
-// Initialize all modern features
-function initializeModernFeatures() {
-    // Add modern scroll behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
-    
-    // Initialize intersection observer for animations
-    initializeIntersectionObserver();
-    
-    // Add loading states
-    addLoadingStates();
-    
-    // Initialize skill bars
-    initializeSkillBars();
-    
-    // Add hover effects
-    addHoverEffects();
-    
-    // Initialize back to top button
-    initializeBackToTop();
-    
-    // Add notification system
-    initializeNotificationSystem();
-    
-    // Console welcome message
-    showWelcomeMessage();
-}
-
-// Mobile menu functionality
-function initializeMobileMenu() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-            
-            // Add smooth animation
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.style.animation = 'slideDown 0.3s ease-out';
-            }
-        });
-        
-        // Close mobile menu when clicking on a link
-        const mobileNavLinks = mobileMenu.querySelectorAll('a');
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-    }
-}
-
-// Smooth scrolling and navigation
-function initializeSmoothScrolling() {
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Active navigation highlighting
-    const sections = document.querySelectorAll('section[id]');
-    const navItems = document.querySelectorAll('.nav-link-modern, .mobile-nav-link-modern');
-    
-    function updateActiveNav() {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navItems.forEach(item => {
-            item.classList.remove('text-primary-600', 'bg-primary-100');
-            if (item.getAttribute('href') === `#${current}`) {
-                item.classList.add('text-primary-600', 'bg-primary-100');
-            }
-        });
-    }
-    
-    // Debounced scroll event
-    const debouncedUpdateActiveNav = debounce(updateActiveNav, 10);
-    window.addEventListener('scroll', debouncedUpdateActiveNav);
-}
-
-// Typing animations
-function initializeTypingAnimations() {
-    const typingText = document.getElementById('typing-text');
-    const typingSubtitle = document.getElementById('typing-subtitle');
-    
-    if (typingText) {
-        const text = "Farooq Ahmed";
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                typingText.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 150);
-            }
-        }
-        
-        // Start typing when element is visible
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    typeWriter();
-                    observer.unobserve(entry.target);
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        dark: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.6s ease-out',
+                        'typing': 'typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient': 'gradient 15s ease infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        typing: {
+                            'from': { width: '0' },
+                            'to': { width: '100%' }
+                        },
+                        blinkCaret: {
+                            'from, to': { borderColor: 'transparent' },
+                            '50%': { borderColor: '#3b82f6' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        }
+                    }
                 }
-            });
-        }, { threshold: 0.5 });
-        
-        observer.observe(typingText);
-    }
-    
-    if (typingSubtitle) {
-        const subtitleText = "Full-Stack Developer & Digital Solution Architect";
-        let j = 0;
-        
-        function typeSubtitle() {
-            if (j < subtitleText.length) {
-                typingSubtitle.textContent += subtitleText.charAt(j);
-                j++;
-                setTimeout(typeSubtitle, 50);
             }
         }
-        
-        // Start subtitle typing after main title
-        setTimeout(typeSubtitle, 2000);
-    }
-}
-
-// Scroll effects and animations
-function initializeScrollEffects() {
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
+    </script>
     
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-    
-    // Parallax effect for hero section
-    const heroSection = document.getElementById('home');
-    if (heroSection) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            heroSection.style.transform = `translateY(${rate}px)`;
-        });
-    }
-}
-
-// Contact form handling
-function initializeContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Enhanced validation
-            if (!validateForm(name, email, subject, message)) {
-                return;
-            }
-            
-            // Show loading state
-            const submitButton = this.querySelector('button[type="submit"]');
-            const originalText = submitButton.innerHTML;
-            submitButton.innerHTML = '<span class="loading"></span> Sending...';
-            submitButton.disabled = true;
-            
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                showNotification('Thank you! Your message has been sent successfully.', 'success');
-                this.reset();
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-            }, 2000);
-        });
-    }
-}
-
-// Form validation
-function validateForm(name, email, subject, message) {
-    if (!name || !email || !subject || !message) {
-        showNotification('Please fill in all fields', 'error');
-        return false;
-    }
-    
-    if (!isValidEmail(email)) {
-        showNotification('Please enter a valid email address', 'error');
-        return false;
-    }
-    
-    if (name.length < 2) {
-        showNotification('Name must be at least 2 characters long', 'error');
-        return false;
-    }
-    
-    if (message.length < 10) {
-        showNotification('Message must be at least 10 characters long', 'error');
-        return false;
-    }
-    
-    return true;
-}
-
-// Email validation
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// Project modal system
-function initializeProjectModals() {
-    // Project data for modal
-    const projectData = {
-        'hr-automation': {
-            title: 'Upgraded HR Automation System',
-            description: `
-                <p class="text-dark-600 mb-6 leading-relaxed">
-                    A comprehensive HR automation solution built with Google Apps Script that streamlines 
-                    all aspects of human resource management. This system includes employee management, 
-                    leave tracking, performance monitoring, and automated reporting capabilities.
-                </p>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Key Features:</h3>
-                <ul class="list-disc list-inside text-dark-600 mb-6 space-y-2">
-                    <li>Employee database management with automated data validation</li>
-                    <li>Leave request and approval workflow automation</li>
-                    <li>Performance tracking and evaluation system</li>
-                    <li>Automated report generation and email notifications</li>
-                    <li>Integration with Google Calendar for scheduling</li>
-                    <li>Real-time dashboard for HR metrics</li>
-                </ul>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Technologies Used:</h3>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <span class="px-4 py-2 bg-primary-100 text-primary-800 text-sm rounded-full font-medium">Google Apps Script</span>
-                    <span class="px-4 py-2 bg-green-100 text-green-800 text-sm rounded-full font-medium">Google Sheets</span>
-                    <span class="px-4 py-2 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Google Forms</span>
-                    <span class="px-4 py-2 bg-orange-100 text-orange-800 text-sm rounded-full font-medium">Gmail API</span>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="font-inter bg-gradient-to-br from-dark-50 via-white to-primary-50 text-dark-800 antialiased">
+    <!-- Modern Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
+                        Farooq Ahmed
+                    </h1>
                 </div>
-            `,
-            images: [
-                'projects/Upgraded HR Automation System/111111.jpg',
-                'projects/Upgraded HR Automation System/222222.jpg',
-                'projects/Upgraded HR Automation System/333333.jpg',
-                'projects/Upgraded HR Automation System/444444.jpg',
-                'projects/Upgraded HR Automation System/555555.jpg',
-                'projects/Upgraded HR Automation System/666666.jpg'
-            ]
-        },
-        'field-monitoring': {
-            title: 'Smart Field Monitoring & Reporting',
-            description: `
-                <p class="text-dark-600 mb-6 leading-relaxed">
-                    A real-time field monitoring system that enables organizations to track field operations, 
-                    manage field staff, and generate comprehensive reports automatically. The system includes 
-                    GPS tracking, automated reporting, and data visualization capabilities.
-                </p>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Key Features:</h3>
-                <ul class="list-disc list-inside text-dark-600 mb-6 space-y-2">
-                    <li>Real-time GPS tracking and location monitoring</li>
-                    <li>Automated field activity reporting</li>
-                    <li>Data visualization and analytics dashboard</li>
-                    <li>Mobile-friendly interface for field staff</li>
-                    <li>Automated alert system for critical events</li>
-                    <li>Integration with mapping services</li>
-                </ul>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Technologies Used:</h3>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <span class="px-4 py-2 bg-primary-100 text-primary-800 text-sm rounded-full font-medium">Google Apps Script</span>
-                    <span class="px-4 py-2 bg-green-100 text-green-800 text-sm rounded-full font-medium">Google Maps API</span>
-                    <span class="px-4 py-2 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Data Visualization</span>
-                    <span class="px-4 py-2 bg-orange-100 text-orange-800 text-sm rounded-full font-medium">Mobile Web App</span>
-                </div>
-            `,
-            images: [
-                'projects/Smart Field Monitoring & Reporting/11111.jpg',
-                'projects/Smart Field Monitoring & Reporting/22222.jpg',
-                'projects/Smart Field Monitoring & Reporting/33333.jpg',
-                'projects/Smart Field Monitoring & Reporting/44444.jpg',
-                'projects/Smart Field Monitoring & Reporting/55555.jpg'
-            ]
-        },
-        'inventory-dashboard': {
-            title: 'Inventory Monitoring Dashboard',
-            description: `
-                <p class="text-dark-600 mb-6 leading-relaxed">
-                    An advanced inventory management system that provides real-time tracking, automated alerts, 
-                    and comprehensive reporting for inventory control. The dashboard offers intuitive data 
-                    visualization and automated inventory optimization suggestions.
-                </p>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Key Features:</h3>
-                <ul class="list-disc list-inside text-dark-600 mb-6 space-y-2">
-                    <li>Real-time inventory tracking and monitoring</li>
-                    <li>Automated low stock alerts and reorder notifications</li>
-                    <li>Comprehensive reporting and analytics dashboard</li>
-                    <li>Barcode scanning integration</li>
-                    <li>Inventory forecasting and demand planning</li>
-                    <li>Multi-location inventory management</li>
-                </ul>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Technologies Used:</h3>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <span class="px-4 py-2 bg-primary-100 text-primary-800 text-sm rounded-full font-medium">Google Apps Script</span>
-                    <span class="px-4 py-2 bg-green-100 text-green-800 text-sm rounded-full font-medium">Google Sheets</span>
-                    <span class="px-4 py-2 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Chart.js</span>
-                    <span class="px-4 py-2 bg-orange-100 text-orange-800 text-sm rounded-full font-medium">Data Analytics</span>
-                </div>
-            `,
-            images: [
-                'projects/Inventory Monitoring Dashboard/1111.jpg',
-                'projects/Inventory Monitoring Dashboard/2222.jpg',
-                'projects/Inventory Monitoring Dashboard/3333.jpg',
-                'projects/Inventory Monitoring Dashboard/4444.jpg',
-                'projects/Inventory Monitoring Dashboard/5555.jpg',
-                'projects/Inventory Monitoring Dashboard/6666.jpg',
-                'projects/Inventory Monitoring Dashboard/7777.jpg'
-            ]
-        },
-        'hr-onboarding': {
-            title: 'HR Onboarding Automation System',
-            description: `
-                <p class="text-dark-600 mb-6 leading-relaxed">
-                    A streamlined employee onboarding system that automates the entire onboarding process, 
-                    from initial application to full integration. The system includes document management, 
-                    progress tracking, and automated workflow notifications.
-                </p>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Key Features:</h3>
-                <ul class="list-disc list-inside text-dark-600 mb-6 space-y-2">
-                    <li>Automated onboarding workflow management</li>
-                    <li>Digital document collection and verification</li>
-                    <li>Progress tracking and milestone notifications</li>
-                    <li>Integration with HR systems and databases</li>
-                    <li>Automated email notifications and reminders</li>
-                    <li>Compliance tracking and reporting</li>
-                </ul>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Technologies Used:</h3>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <span class="px-4 py-2 bg-primary-100 text-primary-800 text-sm rounded-full font-medium">Google Apps Script</span>
-                    <span class="px-4 py-2 bg-green-100 text-green-800 text-sm rounded-full font-medium">Google Drive API</span>
-                    <span class="px-4 py-2 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Workflow Automation</span>
-                    <span class="px-4 py-2 bg-orange-100 text-orange-800 text-sm rounded-full font-medium">Document Management</span>
-                </div>
-            `,
-            images: [
-                'projects/HR Onboarding Automation System/111.jpg',
-                'projects/HR Onboarding Automation System/222.jpg',
-                'projects/HR Onboarding Automation System/333.jpg',
-                'projects/HR Onboarding Automation System/444.jpg',
-                'projects/HR Onboarding Automation System/555.jpg',
-                'projects/HR Onboarding Automation System/666.jpg',
-                'projects/HR Onboarding Automation System/777.jpg'
-            ]
-        },
-        'ration-distribution': {
-            title: 'Digital Ration Distribution System',
-            description: `
-                <p class="text-dark-600 mb-6 leading-relaxed">
-                    A digital system designed to manage ration distribution efficiently with beneficiary tracking, 
-                    inventory management, and automated reporting. This system ensures transparent and 
-                    accountable distribution of essential supplies.
-                </p>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Key Features:</h3>
-                <ul class="list-disc list-inside text-dark-600 mb-6 space-y-2">
-                    <li>Beneficiary registration and verification system</li>
-                    <li>Real-time inventory tracking and management</li>
-                    <li>Automated distribution scheduling</li>
-                    <li>Digital receipt generation and tracking</li>
-                    <li>Comprehensive reporting and analytics</li>
-                    <li>Mobile app for field distribution staff</li>
-                </ul>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Technologies Used:</h3>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <span class="px-4 py-2 bg-primary-100 text-primary-800 text-sm rounded-full font-medium">Google Apps Script</span>
-                    <span class="px-4 py-2 bg-green-100 text-green-800 text-sm rounded-full font-medium">Google Forms</span>
-                    <span class="px-4 py-2 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">QR Code Generation</span>
-                    <span class="px-4 py-2 bg-orange-100 text-orange-800 text-sm rounded-full font-medium">Mobile Web App</span>
-                </div>
-            `,
-            images: [
-                'projects/Digital Ration Distribution System/11.jpg',
-                'projects/Digital Ration Distribution System/22.jpg',
-                'projects/Digital Ration Distribution System/33.jpg',
-                'projects/Digital Ration Distribution System/44.jpg',
-                'projects/Digital Ration Distribution System/55.jpg',
-                'projects/Digital Ration Distribution System/IMG-20250729-WA0025.jpg'
-            ]
-        },
-        'telecom-data': {
-            title: 'Telecom Data Request System',
-            description: `
-                <p class="text-dark-600 mb-6 leading-relaxed">
-                    An automated system for handling telecom data requests with comprehensive request tracking, 
-                    approval workflows, and data management capabilities. The system streamlines the process 
-                    of requesting and managing telecom-related data.
-                </p>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Key Features:</h3>
-                <ul class="list-disc list-inside text-dark-600 mb-6 space-y-2">
-                    <li>Automated request submission and tracking</li>
-                    <li>Multi-level approval workflow system</li>
-                    <li>Data validation and security measures</li>
-                    <li>Real-time status updates and notifications</li>
-                    <li>Comprehensive audit trail and reporting</li>
-                    <li>Integration with telecom databases</li>
-                </ul>
-                <h3 class="text-xl font-bold text-dark-900 mb-4">Technologies Used:</h3>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <span class="px-4 py-2 bg-primary-100 text-primary-800 text-sm rounded-full font-medium">Google Apps Script</span>
-                    <span class="px-4 py-2 bg-green-100 text-green-800 text-sm rounded-full font-medium">Workflow Automation</span>
-                    <span class="px-4 py-2 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Data Security</span>
-                    <span class="px-4 py-2 bg-orange-100 text-orange-800 text-sm rounded-full font-medium">API Integration</span>
-                </div>
-            `,
-            images: [
-                'projects/Telecom Data Request/1.jpg',
-                'projects/Telecom Data Request/2.jpg',
-                'projects/Telecom Data Request/3.jpg',
-                'projects/Telecom Data Request/4.jpg',
-                'projects/Telecom Data Request/5.jpg',
-                'projects/Telecom Data Request/6.jpg',
-                'projects/Telecom Data Request/7.jpg'
-            ]
-        }
-    };
-
-    // Modal functions
-    window.openProjectModal = function(projectId) {
-        const project = projectData[projectId];
-        if (!project) return;
-
-        const modal = document.getElementById('projectModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalContent = document.getElementById('modalContent');
-
-        modalTitle.textContent = project.title;
-        
-        // Create content with description and images
-        let contentHTML = project.description;
-        
-        // Add image gallery
-        if (project.images && project.images.length > 0) {
-            contentHTML += `
-                <div class="mt-8">
-                    <h3 class="text-xl font-bold text-dark-900 mb-6">Project Screenshots</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            `;
-            
-            project.images.forEach((imagePath, index) => {
-                contentHTML += `
-                    <div class="relative group cursor-pointer transform hover:scale-105 transition-all duration-300" onclick="openImageModal('${imagePath}')">
-                        <img src="${imagePath}" alt="Project Screenshot ${index + 1}" 
-                             class="w-full h-48 object-cover rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 rounded-lg flex items-center justify-center">
-                            <div class="bg-white bg-opacity-90 text-dark-800 px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                                <i class="fas fa-search-plus mr-2"></i>
-                                <span class="text-sm font-medium">View Full Size</span>
-                            </div>
-                        </div>
-                        <div class="absolute top-3 right-3 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            ${index + 1} / ${project.images.length}
-                        </div>
-                    </div>
-                `;
-            });
-            
-            contentHTML += `
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link-modern">Home</a>
+                        <a href="#about" class="nav-link-modern">About</a>
+                        <a href="#services" class="nav-link-modern">Services</a>
+                        <a href="#projects" class="nav-link-modern">Projects</a>
+                        <a href="#contact" class="nav-link-modern">Contact</a>
+                        <button id="theme-toggle" class="theme-toggle-btn">
+                            <i class="fas fa-moon"></i>
+                        </button>
                     </div>
                 </div>
-            `;
-        }
-
-        modalContent.innerHTML = contentHTML;
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    };
-
-    window.closeProjectModal = function() {
-        const modal = document.getElementById('projectModal');
-        modal.classList.add('hidden');
-        document.body.style.overflow = 'auto';
-    };
-
-    // Close modal when clicking outside
-    document.getElementById('projectModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeProjectModal();
-        }
-    });
-}
-
-// Theme toggle functionality
-function initializeThemeToggle() {
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    
-    if (themeToggle) {
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            body.setAttribute('data-theme', savedTheme);
-            updateThemeIcon(savedTheme);
-        }
-        
-        themeToggle.addEventListener('click', function() {
-            const currentTheme = body.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-            
-            // Add transition effect
-            body.style.transition = 'all 0.3s ease';
-            setTimeout(() => {
-                body.style.transition = '';
-            }, 300);
-        });
-    }
-}
-
-function updateThemeIcon(theme) {
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        if (theme === 'dark') {
-            icon.className = 'fas fa-sun';
-        } else {
-            icon.className = 'fas fa-moon';
-        }
-    }
-}
-
-// Performance optimizations
-function initializePerformanceOptimizations() {
-    // Debounce function
-    function debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
-    
-    // Lazy loading for images
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Intersection Observer for animations
-function initializeIntersectionObserver() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe sections for animation
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-}
-
-// Skill bars animation
-function initializeSkillBars() {
-    const skillBars = document.querySelectorAll('.skill-fill-modern');
-    skillBars.forEach(bar => {
-        const width = bar.getAttribute('data-width');
-        bar.style.setProperty('--fill-width', width);
-        bar.style.width = '0%';
-        
-        const skillObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.width = entry.target.style.getPropertyValue('--fill-width');
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        skillObserver.observe(bar);
-    });
-}
-
-// Hover effects
-function addHoverEffects() {
-    // Add hover effects to cards
-    const cards = document.querySelectorAll('.about-card-modern, .service-card-modern, .contact-form-card-modern');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-}
-
-// Back to top button
-function initializeBackToTop() {
-    const backToTopButton = document.getElementById('back-to-top');
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    });
-    
-    backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
-
-// Notification system
-function initializeNotificationSystem() {
-    // Notification function is already defined in the original code
-}
-
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.innerHTML = `
-        <div class="flex items-center justify-between">
-            <span>${message}</span>
-            <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.parentElement.remove()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 100);
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-            if (notification.parentElement) {
-                notification.remove();
-            }
-        }, 300);
-    }, 5000);
-}
-
-// Loading states
-function addLoadingStates() {
-    // Add loading states to buttons
-    const buttons = document.querySelectorAll('button[type="submit"]');
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            if (!this.disabled) {
-                this.innerHTML = '<span class="loading"></span> Loading...';
-                this.disabled = true;
-            }
-        });
-    });
-}
-
-// Welcome message
-function showWelcomeMessage() {
-    console.log(`
-    🚀 Welcome to Farooq Ahmed's Modern Portfolio!
-    
-    👨‍💻 Full-Stack Developer & Digital Solution Architect
-    🛠️  Google Apps Script Expert
-    ✈️  Visa Consultant
-    
-    📧 Contact: balouchp3@gmail.com
-    🔗 LinkedIn: https://www.linkedin.com/in/farooq-ahmed-86a069175/
-    
-    Built with ❤️ using modern HTML, CSS, and JavaScript
-    Features: Glassmorphism, Smooth Animations, Responsive Design
-    `);
-}
-
-// Utility functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Download CV functionality
-document.getElementById('download-cv')?.addEventListener('click', function(e) {
-    e.preventDefault();
-    showNotification('CV download feature coming soon!', 'info');
-});
-
-// Enhanced image modal functionality
-window.openImageModal = function(imagePath) {
-    const imageModal = document.createElement('div');
-    imageModal.className = 'fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300';
-    imageModal.id = 'imageModal';
-    
-    imageModal.innerHTML = `
-        <div class="relative max-w-5xl max-h-full transform scale-95 transition-transform duration-300" id="imageModalContent">
-            <div class="relative">
-                <img src="${imagePath}" alt="Project Screenshot" 
-                     class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
-                     id="modalImage"
-                     onload="document.getElementById('imageModalContent').classList.remove('scale-95'); document.getElementById('imageModalContent').classList.add('scale-100');">
-                
-                <!-- Close button -->
-                <button onclick="closeImageModal()" 
-                        class="absolute -top-4 -right-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm">
-                    <i class="fas fa-times"></i>
-                </button>
-                
-                <!-- Navigation arrows -->
-                <button onclick="navigateImage('prev')" 
-                        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white text-xl w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <button onclick="navigateImage('next')" 
-                        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white text-xl w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 backdrop-blur-sm">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                
-                <!-- Image counter -->
-                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full text-sm backdrop-blur-sm">
-                    <span id="imageCounter">1</span> / <span id="totalImages">1</span>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
-    `;
-    
-    document.body.appendChild(imageModal);
-    
-    // Show modal with animation
-    setTimeout(() => {
-        imageModal.classList.remove('opacity-0');
-    }, 10);
-    
-    // Close modal when clicking outside
-    imageModal.addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeImageModal();
-        }
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', handleImageModalKeydown);
-};
-
-window.closeImageModal = function() {
-    const imageModal = document.getElementById('imageModal');
-    if (imageModal) {
-        imageModal.classList.add('opacity-0');
-        document.getElementById('imageModalContent').classList.add('scale-95');
-        document.getElementById('imageModalContent').classList.remove('scale-100');
         
-        setTimeout(() => {
-            imageModal.remove();
-            document.removeEventListener('keydown', handleImageModalKeydown);
-        }, 300);
-    }
-};
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden mobile-menu">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#home" class="mobile-nav-link-modern">Home</a>
+                <a href="#about" class="mobile-nav-link-modern">About</a>
+                <a href="#services" class="mobile-nav-link-modern">Services</a>
+                <a href="#projects" class="mobile-nav-link-modern">Projects</a>
+                <a href="#contact" class="mobile-nav-link-modern">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-function handleImageModalKeydown(e) {
-    switch(e.key) {
-        case 'Escape':
-            closeImageModal();
-            break;
-        case 'ArrowLeft':
-            navigateImage('prev');
-            break;
-        case 'ArrowRight':
-            navigateImage('next');
-            break;
-    }
-}
+    <!-- Modern Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100 animate-gradient"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <!-- Profile Image with Modern Styling -->
+                <div class="mb-12 relative">
+                    <div class="relative inline-block">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full blur-xl opacity-30 animate-float"></div>
+                        <img src="profile.jpg" alt="Farooq Ahmed" class="relative w-40 h-40 rounded-full border-4 border-white shadow-2xl object-cover profile-image-modern">
+                        <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-lg"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Animated Typing Title -->
+                <div class="mb-8">
+                    <h1 class="text-5xl md:text-7xl font-bold text-dark-900 mb-4">
+                        Hi, I'm <span class="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent typing-text" id="typing-text"></span>
+                    </h1>
+                    <div class="text-2xl md:text-3xl text-dark-600 mb-6 font-light">
+                        <span class="typing-subtitle" id="typing-subtitle"></span>
+                        <span class="typing-cursor">|</span>
+                    </div>
+                </div>
+                
+                <!-- Value Proposition -->
+                <p class="text-xl md:text-2xl text-dark-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+                    <span class="font-semibold text-primary-600">Office Automation Expert with AI & Visa Consultant</span><br>
+                    Streamlining business processes with intelligent automation and guiding dreams through expert visa consultancy
+                </p>
+                
+                <!-- Modern CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+                    <a href="#projects" class="btn-primary-modern group">
+                        <span class="btn-content">
+                            <i class="fas fa-rocket mr-3 group-hover:rotate-12 transition-transform"></i>
+                            View My Work
+                        </span>
+                        <div class="btn-glow"></div>
+                    </a>
+                    <a href="#contact" class="btn-secondary-modern group">
+                        <span class="btn-content">
+                            <i class="fas fa-paper-plane mr-3 group-hover:translate-x-1 transition-transform"></i>
+                            Let's Connect
+                        </span>
+                    </a>
+                    <a href="#" class="btn-outline-modern group" id="download-cv">
+                        <span class="btn-content">
+                            <i class="fas fa-download mr-3 group-hover:translate-y-1 transition-transform"></i>
+                            Download CV
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.linkedin.com/in/farooq-ahmed-86a069175/" target="_blank" class="social-link-modern linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/khoso74" target="_blank" class="social-link-modern github">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/farooq_ahmed" target="_blank" class="social-link-modern twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:balouchp3@gmail.com" class="social-link-modern email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-primary-600 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-primary-600 rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
 
-// Profile image loading optimization
-const profileImage = document.querySelector('.profile-image-modern');
-if (profileImage) {
-    profileImage.style.opacity = '0';
-    profileImage.style.transition = 'opacity 0.3s ease';
-    
-    profileImage.addEventListener('load', function() {
-        this.style.opacity = '1';
-    });
-    
-    profileImage.addEventListener('error', function() {
-        this.src = 'https://via.placeholder.com/160x160/3B82F6/FFFFFF?text=FA';
-    });
-    
-    if (profileImage.complete && profileImage.naturalHeight !== 0) {
-        profileImage.style.opacity = '1';
-    }
-} 
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark-900 mb-6">
+                    About <span class="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Me</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="about-card-modern">
+                        <h3 class="text-3xl font-bold text-dark-900 mb-6">My Journey</h3>
+                        <div class="space-y-6 text-lg text-dark-600 leading-relaxed">
+                            <p>
+                                I'm a passionate <span class="font-semibold text-primary-600">Office Automation Expert</span> from Pakistan with a deep love for AI-powered solutions and problem-solving. 
+                                My journey in technology began with Google Apps Script, where I discovered the power of creating 
+                                intelligent automation solutions that transform business processes.
+                            </p>
+                            <p>
+                                Beyond automation, I'm also passionate about helping people achieve their dreams. My expertise in 
+                                <span class="font-semibold text-primary-600">visa consultancy</span>, particularly for US visit visas 
+                                and family-based immigration, allows me to make a meaningful impact in people's lives.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Professional Stats -->
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="stat-card-modern">
+                            <div class="stat-icon">
+                                <i class="fas fa-robot text-3xl text-primary-600"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-dark-900">Automation Expert</h4>
+                            <p class="text-dark-600">AI-powered solutions</p>
+                        </div>
+                        <div class="stat-card-modern">
+                            <div class="stat-icon">
+                                <i class="fas fa-plane text-3xl text-primary-600"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-dark-900">Consultant</h4>
+                            <p class="text-dark-600">Visa & immigration expert</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills Section -->
+                <div class="space-y-8">
+                    <div class="skills-card-modern">
+                        <h4 class="text-2xl font-bold text-dark-900 mb-8">Skills & Expertise</h4>
+                        <div class="space-y-6">
+                            <div class="skill-item-modern">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-dark-900">Google Apps Script</span>
+                                    <span class="text-primary-600 font-bold">95%</span>
+                                </div>
+                                <div class="skill-bar-modern">
+                                    <div class="skill-fill-modern" data-width="95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item-modern">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-dark-900">Google Sheets</span>
+                                    <span class="text-primary-600 font-bold">90%</span>
+                                </div>
+                                <div class="skill-bar-modern">
+                                    <div class="skill-fill-modern" data-width="90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item-modern">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-dark-900">Visa Consultancy</span>
+                                    <span class="text-primary-600 font-bold">85%</span>
+                                </div>
+                                <div class="skill-bar-modern">
+                                    <div class="skill-fill-modern" data-width="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item-modern">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-semibold text-dark-900">Automation</span>
+                                    <span class="text-primary-600 font-bold">88%</span>
+                                </div>
+                                <div class="skill-bar-modern">
+                                    <div class="skill-fill-modern" data-width="88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-gradient-to-br from-dark-50 to-primary-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark-900 mb-6">
+                    What I <span class="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Do</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto rounded-full mb-8"></div>
+                <p class="text-xl text-dark-600 max-w-3xl mx-auto">
+                    From automation solutions to visa consultancy, I help businesses and individuals achieve their goals with modern technology
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Google Apps Script Services -->
+                <div class="service-card-modern blue">
+                    <div class="service-icon">
+                        <i class="fas fa-code text-5xl text-primary-600"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-dark-900 mb-6">Google Apps Script Development</h3>
+                    <ul class="space-y-4 text-lg text-dark-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-4 text-xl"></i>
+                            <span>Custom automation solutions for Google Sheets and Forms</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-4 text-xl"></i>
+                            <span>Email automation and notification systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-4 text-xl"></i>
+                            <span>Data processing and analysis tools</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-4 text-xl"></i>
+                            <span>Integration with Google APIs and third-party services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-4 text-xl"></i>
+                            <span>Custom web applications and dashboards</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Visa Consultancy Services -->
+                <div class="service-card-modern green">
+                    <div class="service-icon">
+                        <i class="fas fa-plane text-5xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-dark-900 mb-6">Visa Consultancy</h3>
+                    <ul class="space-y-4 text-lg text-dark-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-4 text-xl"></i>
+                            <span>US Visit Visa application assistance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-4 text-xl"></i>
+                            <span>Family-based immigration consultation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-4 text-xl"></i>
+                            <span>Document preparation and review</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-4 text-xl"></i>
+                            <span>Interview preparation and guidance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-4 text-xl"></i>
+                            <span>Application status tracking and follow-up</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark-900 mb-6">
+                    Featured <span class="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Projects</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto rounded-full mb-8"></div>
+                <p class="text-xl text-dark-600 max-w-3xl mx-auto">
+                    Here are some of the tools and automations I've built to solve real-world problems
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Upgraded HR Automation System -->
+                <div class="project-card-modern group">
+                    <div class="relative overflow-hidden">
+                        <img src="projects/Upgraded HR Automation System/111111.jpg" alt="Upgraded HR Automation System" class="w-full h-48 object-cover project-image-modern transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-users-cog text-2xl text-primary-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-dark-900">Upgraded HR Automation System</h3>
+                        </div>
+                        <p class="text-dark-600 mb-4">
+                            Comprehensive HR automation solution with employee management, leave tracking, 
+                            performance monitoring, and automated reporting capabilities.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">HR Management</span>
+                        </div>
+                        <button onclick="openProjectModal('hr-automation')" class="text-primary-600 hover:text-primary-800 font-medium cursor-pointer transition-colors duration-300">View Details →</button>
+                    </div>
+                </div>
+
+                <!-- Project 2: Smart Field Monitoring & Reporting -->
+                <div class="project-card-modern group">
+                    <div class="relative overflow-hidden">
+                        <img src="projects/Smart Field Monitoring & Reporting/11111.jpg" alt="Smart Field Monitoring & Reporting" class="w-full h-48 object-cover project-image-modern transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-map-marked-alt text-2xl text-green-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-dark-900">Smart Field Monitoring & Reporting</h3>
+                        </div>
+                        <p class="text-dark-600 mb-4">
+                            Real-time field monitoring system with GPS tracking, automated reporting, and data visualization for field operations management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Field Monitoring</span>
+                        </div>
+                        <button onclick="openProjectModal('field-monitoring')" class="text-primary-600 hover:text-primary-800 font-medium cursor-pointer transition-colors duration-300">View Details →</button>
+                    </div>
+                </div>
+
+                <!-- Project 3: Inventory Monitoring Dashboard -->
+                <div class="project-card-modern group">
+                    <div class="relative overflow-hidden">
+                        <img src="projects/Inventory Monitoring Dashboard/1111.jpg" alt="Inventory Monitoring Dashboard" class="w-full h-48 object-cover project-image-modern transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-boxes text-2xl text-purple-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-dark-900">Inventory Monitoring Dashboard</h3>
+                        </div>
+                        <p class="text-dark-600 mb-4">
+                            Advanced inventory management system with real-time tracking, 
+                            automated alerts, and comprehensive reporting dashboard.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Inventory Management</span>
+                        </div>
+                        <button onclick="openProjectModal('inventory-dashboard')" class="text-primary-600 hover:text-primary-800 font-medium cursor-pointer transition-colors duration-300">View Details →</button>
+                    </div>
+                </div>
+
+                <!-- Project 4: HR Onboarding Automation System -->
+                <div class="project-card-modern group">
+                    <div class="relative overflow-hidden">
+                        <img src="projects/HR Onboarding Automation System/111.jpg" alt="HR Onboarding Automation System" class="w-full h-48 object-cover project-image-modern transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-user-plus text-2xl text-red-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-dark-900">HR Onboarding Automation System</h3>
+                        </div>
+                        <p class="text-dark-600 mb-4">
+                            Streamlined employee onboarding process with automated workflows, 
+                            document management, and progress tracking.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Onboarding</span>
+                        </div>
+                        <button onclick="openProjectModal('hr-onboarding')" class="text-primary-600 hover:text-primary-800 font-medium cursor-pointer transition-colors duration-300">View Details →</button>
+                    </div>
+                </div>
+
+                <!-- Project 5: Digital Ration Distribution System -->
+                <div class="project-card-modern group">
+                    <div class="relative overflow-hidden">
+                        <img src="projects/Digital Ration Distribution System/11.jpg" alt="Digital Ration Distribution System" class="w-full h-48 object-cover project-image-modern transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-hand-holding-heart text-2xl text-indigo-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-dark-900">Digital Ration Distribution System</h3>
+                        </div>
+                        <p class="text-dark-600 mb-4">
+                            Digital system for managing ration distribution with beneficiary tracking, 
+                            inventory management, and automated reporting.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Distribution</span>
+                        </div>
+                        <button onclick="openProjectModal('ration-distribution')" class="text-primary-600 hover:text-primary-800 font-medium cursor-pointer transition-colors duration-300">View Details →</button>
+                    </div>
+                </div>
+
+                <!-- Project 6: Telecom Data Request -->
+                <div class="project-card-modern group">
+                    <div class="relative overflow-hidden">
+                        <img src="projects/Telecom Data Request/1.jpg" alt="Telecom Data Request" class="w-full h-48 object-cover project-image-modern transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-phone-alt text-2xl text-teal-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold text-dark-900">Telecom Data Request</h3>
+                        </div>
+                        <p class="text-dark-600 mb-4">
+                            Automated system for handling telecom data requests with 
+                            request tracking, approval workflows, and data management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 text-sm rounded-full">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-teal-100 text-teal-800 text-sm rounded-full">Telecom</span>
+                        </div>
+                        <button onclick="openProjectModal('telecom-data')" class="text-primary-600 hover:text-primary-800 font-medium cursor-pointer transition-colors duration-300">View Details →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gradient-to-br from-dark-50 to-primary-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark-900 mb-6">
+                    Let's <span class="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">Connect</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-700 mx-auto rounded-full mb-8"></div>
+                <p class="text-xl text-dark-600 max-w-3xl mx-auto">
+                    Ready to start your automation project or need visa consultation? Let's discuss how I can help you.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="contact-form-card-modern">
+                    <h3 class="text-3xl font-bold text-dark-900 mb-8">Send Me a Message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="form-group-modern">
+                            <label for="name" class="form-label-modern">Name</label>
+                            <input type="text" id="name" name="name" required class="form-input-modern">
+                        </div>
+                        <div class="form-group-modern">
+                            <label for="email" class="form-label-modern">Email</label>
+                            <input type="email" id="email" name="email" required class="form-input-modern">
+                        </div>
+                        <div class="form-group-modern">
+                            <label for="subject" class="form-label-modern">Subject</label>
+                            <select id="subject" name="subject" required class="form-input-modern">
+                                <option value="">Select a subject</option>
+                                <option value="automation">Google Apps Script Automation</option>
+                                <option value="visa">Visa Consultancy</option>
+                                <option value="project">Project Discussion</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group-modern">
+                            <label for="message" class="form-label-modern">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="form-input-modern"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary-modern w-full group">
+                            <span class="btn-content">
+                                <i class="fas fa-paper-plane mr-3 group-hover:translate-x-1 transition-transform"></i>
+                                Send Message
+                            </span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="contact-info-card-modern">
+                        <h3 class="text-3xl font-bold text-dark-900 mb-8">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="contact-item-modern">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope text-2xl text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-dark-900">Email</p>
+                                    <p class="text-dark-600">balouchp3@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item-modern">
+                                <div class="contact-icon">
+                                    <i class="fab fa-linkedin text-2xl text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-dark-900">LinkedIn</p>
+                                    <p class="text-dark-600">farooq-ahmed-86a069175</p>
+                                </div>
+                            </div>
+                            <div class="contact-item-modern">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt text-2xl text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-dark-900">Location</p>
+                                    <p class="text-dark-600">Pakistan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Contact Buttons -->
+                    <div class="space-y-4">
+                        <h4 class="text-2xl font-bold text-dark-900">Quick Contact</h4>
+                        <a href="https://www.linkedin.com/in/farooq-ahmed-86a069175/" target="_blank" class="quick-contact-btn-modern linkedin">
+                            <i class="fab fa-linkedin mr-3 text-xl"></i>
+                            Connect on LinkedIn
+                        </a>
+                        <a href="mailto:balouchp3@gmail.com" class="quick-contact-btn-modern email">
+                            <i class="fas fa-envelope mr-3"></i>
+                            Send Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="bg-dark-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-primary-400 mb-6">Farooq Ahmed</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Pakistani tech enthusiast, Google Apps Script developer, and visa consultant helping 
+                        businesses and individuals achieve their goals with modern technology solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/farooq-ahmed-86a069175/" target="_blank" class="footer-social-link">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://github.com/khoso74" target="_blank" class="footer-social-link">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://twitter.com/farooq_ahmed" target="_blank" class="footer-social-link">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Services</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#services" class="footer-link">Google Apps Script</a></li>
+                        <li><a href="#services" class="footer-link">Automation Solutions</a></li>
+                        <li><a href="#services" class="footer-link">Visa Consultancy</a></li>
+                        <li><a href="#services" class="footer-link">US Immigration</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#about" class="footer-link">About Me</a></li>
+                        <li><a href="#projects" class="footer-link">Projects</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Farooq Ahmed. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal-overlay hidden">
+        <div class="modal-content-modern">
+            <div class="modal-header-modern">
+                <h2 id="modalTitle" class="text-3xl font-bold text-dark-900"></h2>
+                <button onclick="closeProjectModal()" class="modal-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modalContent" class="modal-body-modern">
+                <!-- Project content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top-modern">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html> 
