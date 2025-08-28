@@ -166,6 +166,7 @@ function initializeTypingAnimations() {
     
     if (typingSubtitle) {
         const subtitleText = "Office Automation Expert with AI & Visa Consultant";
+        console.log("Setting typing subtitle to:", subtitleText); // Debug log
         let j = 0;
         
         function typeSubtitle() {
@@ -566,15 +567,27 @@ function initializeThemeToggle() {
             const currentTheme = body.getAttribute('data-theme') || 'light';
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             
+            // Add smooth transition
+            body.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            // Update theme
             body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateThemeIcon(newTheme);
             
-            // Add transition effect
-            body.style.transition = 'all 0.3s ease';
+            // Add button animation
+            themeToggle.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                themeToggle.style.transform = '';
+            }, 150);
+            
+            // Show notification
+            showNotification(`Switched to ${newTheme} mode`, 'info');
+            
+            // Remove transition after animation
             setTimeout(() => {
                 body.style.transition = '';
-            }, 300);
+            }, 400);
         });
     }
 }
@@ -585,9 +598,14 @@ function updateThemeIcon(theme) {
         const icon = themeToggle.querySelector('i');
         if (theme === 'dark') {
             icon.className = 'fas fa-sun';
+            icon.style.transform = 'rotate(180deg)';
         } else {
             icon.className = 'fas fa-moon';
+            icon.style.transform = 'rotate(0deg)';
         }
+        
+        // Add smooth icon transition
+        icon.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
     }
 }
 
