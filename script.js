@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Scroll animations and effects
     initializeScrollEffects();
+    initializeScrollReveal();
     
     // Contact form handling
     initializeContactForm();
@@ -22,8 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Project modal system
     initializeProjectModals();
     
-    // Theme toggle functionality
-    initializeThemeToggle();
+    // Theme toggle removed
     
     // Performance optimizations
     initializePerformanceOptimizations();
@@ -54,6 +54,41 @@ function initializeModernFeatures() {
     
     // Console welcome message
     showWelcomeMessage();
+}
+// Scroll Reveal animations
+function initializeScrollReveal() {
+    const revealItems = document.querySelectorAll('.reveal');
+    if (!revealItems.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+                setTimeout(() => {
+                    el.classList.add('revealed');
+                }, delay);
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    // Optional: auto-apply reveal to common elements for convenience
+    const autoTargets = document.querySelectorAll(
+        'section .about-card-modern, section .service-card-modern, section .project-card-modern, section .contact-form-card-modern, section .contact-info-card-modern, section h2, section h3, section p, section .stat-card-modern'
+    );
+    autoTargets.forEach((el, idx) => {
+        if (!el.classList.contains('reveal')) {
+            el.classList.add('reveal');
+            if (idx % 3 === 0) el.classList.add('reveal-up');
+            if (idx % 3 === 1) el.classList.add('reveal-left');
+            if (idx % 3 === 2) el.classList.add('reveal-right');
+            el.setAttribute('data-reveal-delay', String((idx % 6) * 60));
+        }
+    });
+
+    // Observe all
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 }
 
 // Mobile menu functionality
@@ -551,69 +586,7 @@ function initializeProjectModals() {
 }
 
 // Theme toggle functionality
-function initializeThemeToggle() {
-    const themeToggle = document.getElementById('theme-toggle');
-    const root = document.documentElement;
-    
-    if (themeToggle) {
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            root.setAttribute('data-theme', savedTheme);
-            updateThemeIcon(savedTheme);
-        } else {
-            // Respect system preference by default
-            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const defaultTheme = prefersDark ? 'dark' : 'light';
-            root.setAttribute('data-theme', defaultTheme);
-            updateThemeIcon(defaultTheme);
-        }
-        
-        themeToggle.addEventListener('click', function() {
-            const currentTheme = root.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            // Add smooth transition
-            root.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-            
-            // Update theme
-            root.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-            
-            // Add button animation
-            themeToggle.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                themeToggle.style.transform = '';
-            }, 150);
-            
-            // Show notification
-            showNotification(`Switched to ${newTheme} mode`, 'info');
-            
-            // Remove transition after animation
-            setTimeout(() => {
-                root.style.transition = '';
-            }, 400);
-        });
-    }
-}
-
-function updateThemeIcon(theme) {
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        if (theme === 'dark') {
-            icon.className = 'fas fa-sun';
-            icon.style.transform = 'rotate(180deg)';
-        } else {
-            icon.className = 'fas fa-moon';
-            icon.style.transform = 'rotate(0deg)';
-        }
-        
-        // Add smooth icon transition
-        icon.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-    }
-}
+// Theme toggle code removed
 
 // Performance optimizations
 function initializePerformanceOptimizations() {
