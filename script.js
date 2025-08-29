@@ -553,25 +553,31 @@ function initializeProjectModals() {
 // Theme toggle functionality
 function initializeThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
+    const root = document.documentElement;
     
     if (themeToggle) {
         // Check for saved theme preference
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
-            body.setAttribute('data-theme', savedTheme);
+            root.setAttribute('data-theme', savedTheme);
             updateThemeIcon(savedTheme);
+        } else {
+            // Respect system preference by default
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const defaultTheme = prefersDark ? 'dark' : 'light';
+            root.setAttribute('data-theme', defaultTheme);
+            updateThemeIcon(defaultTheme);
         }
         
         themeToggle.addEventListener('click', function() {
-            const currentTheme = body.getAttribute('data-theme') || 'light';
+            const currentTheme = root.getAttribute('data-theme') || 'light';
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             
             // Add smooth transition
-            body.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            root.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
             
             // Update theme
-            body.setAttribute('data-theme', newTheme);
+            root.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateThemeIcon(newTheme);
             
@@ -586,7 +592,7 @@ function initializeThemeToggle() {
             
             // Remove transition after animation
             setTimeout(() => {
-                body.style.transition = '';
+                root.style.transition = '';
             }, 400);
         });
     }
