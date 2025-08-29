@@ -1031,6 +1031,23 @@ h1, h2, h3, h4, h5, h6 {
     transition-duration: 400ms;
 }
 
+/* Parallax utility - ensures elements paint smoothly */
+.parallax {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Accessibility: Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .parallax {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
 @keyframes slideUp {
     from {
         opacity: 0;
