@@ -50,16 +50,17 @@
 [data-theme="dark"] {
     --glass-bg: rgba(0, 0, 0, 0.3);
     --glass-border: rgba(255, 255, 255, 0.15);
-    --primary-50: #1e3a8a;
-    --primary-100: #1e40af;
-    --primary-200: #1d4ed8;
-    --primary-300: #2563eb;
-    --primary-400: #3b82f6;
-    --primary-500: #60a5fa;
-    --primary-600: #93c5fd;
-    --primary-700: #bfdbfe;
-    --primary-800: #dbeafe;
-    --primary-900: #eff6ff;
+    /* Keep brand primary colors consistent in dark mode */
+    --primary-50: #eff6ff;
+    --primary-100: #dbeafe;
+    --primary-200: #bfdbfe;
+    --primary-300: #93c5fd;
+    --primary-400: #60a5fa;
+    --primary-500: #3b82f6;
+    --primary-600: #2563eb;
+    --primary-700: #1d4ed8;
+    --primary-800: #1e40af;
+    --primary-900: #1e3a8a;
     
     --dark-50: #0f172a;
     --dark-100: #1e293b;
@@ -399,7 +400,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Typing Animation */
 .typing-text {
-    border-right: 3px solid var(--primary-600);
+    border-right: 3px solid var(--primary-500);
     white-space: nowrap;
     overflow: hidden;
     animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
@@ -421,7 +422,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: var(--primary-600); }
+    50% { border-color: var(--primary-500); }
 }
 
 @keyframes blink {
@@ -503,6 +504,18 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+}
+
+/* Dark mode secondary button for proper contrast */
+[data-theme="dark"] .btn-secondary-modern {
+    background: rgba(15, 23, 42, 0.85);
+    color: var(--primary-400);
+    border-color: var(--primary-600);
+}
+
+[data-theme="dark"] .btn-secondary-modern:hover {
+    background: var(--primary-600);
+    color: #ffffff;
 }
 
 .btn-outline-modern {
@@ -1528,27 +1541,27 @@ select:focus {
 [data-theme="dark"] h4, 
 [data-theme="dark"] h5, 
 [data-theme="dark"] h6 {
-    color: var(--dark-100);
+    color: #E6EAF2; /* high-contrast heading */
 }
 
 [data-theme="dark"] p {
-    color: var(--dark-200);
+    color: #C9D2E3; /* readable body text */
 }
 
 [data-theme="dark"] .text-dark-600 {
-    color: var(--dark-200) !important;
+    color: #C9D2E3 !important;
 }
 
 [data-theme="dark"] .text-dark-700 {
-    color: var(--dark-100) !important;
+    color: #E6EAF2 !important;
 }
 
 [data-theme="dark"] .text-dark-800 {
-    color: var(--dark-100) !important;
+    color: #E6EAF2 !important;
 }
 
 [data-theme="dark"] .text-dark-900 {
-    color: var(--dark-50) !important;
+    color: #F7F9FC !important;
 }
 
 [data-theme="dark"] .mobile-menu {
