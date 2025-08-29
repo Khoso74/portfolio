@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll animations and effects
     initializeScrollEffects();
     initializeScrollReveal();
+    initializeParallax();
     
     // Contact form handling
     initializeContactForm();
@@ -89,6 +90,49 @@ function initializeScrollReveal() {
 
     // Observe all
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+}
+
+// Lightweight Parallax
+// Usage: add class "parallax" and optional data-parallax-speed (default 0.3)
+function initializeParallax() {
+    const parallaxItems = Array.from(document.querySelectorAll('.parallax, [data-parallax-speed]'));
+    if (!parallaxItems.length) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    const items = parallaxItems.map(el => ({
+        el,
+        speed: clamp(parseFloat(el.getAttribute('data-parallax-speed')) || 0.3, -1, 1)
+    }));
+
+    function onScroll() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const isMobile = window.innerWidth < 640;
+        items.forEach(({ el, speed }) => {
+            const translate = (scrollY * speed * 0.5) * (isMobile ? 0.6 : 1);
+            el.style.transform = `translate3d(0, ${translate}px, 0)`;
+        });
+    }
+
+    let ticking = false;
+    function onScrollRaf() {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                onScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScrollRaf, { passive: true });
+    window.addEventListener('resize', onScrollRaf);
+    onScroll();
+}
+
+function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
 }
 
 // Mobile menu functionality
@@ -230,15 +274,7 @@ function initializeScrollEffects() {
         }
     });
     
-    // Parallax effect for hero section
-    const heroSection = document.getElementById('home');
-    if (heroSection) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            heroSection.style.transform = `translateY(${rate}px)`;
-        });
-    }
+    // Parallax is handled globally in initializeParallax
 }
 
 // Contact form handling
